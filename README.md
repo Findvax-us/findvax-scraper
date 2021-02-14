@@ -42,6 +42,7 @@ Lambda billing is in Gigabyte-seconds (memory used x runtime) and has a max runt
 - **_More scraper classes_** lots of locations we can't read yet
 - More locations, this was the result of just making my way down the alphabetical listing in the spreadsheet
 - Have individual scrapers write their start/finish times to metrics (when enabled) 
+- Error handling: if one location fails it shouldn't kill the whole thing
 - Better (literally any) doc
 - Clean up `scrape.js` and organize writing results json 
 - Add `production` config option to represent whether we're running on AWS in a lambda and should be reading/writing to S3 instead of local testdata files
