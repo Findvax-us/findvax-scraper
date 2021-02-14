@@ -1,0 +1,401 @@
+[
+  {
+    "uuid": "20f0ede4-3dd3-4ba7-81c6-a0faae61b06a",
+    "name": "Gillette Stadium",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=gillette&search_radius=All",
+    "scraperParams": {
+        "titleName": "Gillette Stadium"
+    },
+    "tz": "-05:00",
+    "zip": "02035",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "1 Patriot Place, Parking Lot 22, Foxborough, MA 02035",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=gillette&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "",
+    "accessibility": "The entire path of travel from arrival/drop-off (W4 entrance) to exit (W3) is fully accessible via walkways and elevators. There are wheelchairs available on-site for any guests that need assistance and staff available to assist with mobility issues. A language line and a visual language line are available on site. There are chairs throughout the queuing process to give guests a break. There is handicap parking onsite and the entire lot is accessible."
+  },
+  {
+    "uuid": "8001647e-ecd5-497f-b846-42f68d334ae8",
+    "name": "Eastfield Mall",
+    "scraperClass": "curative",
+    "scraperUrl": "https://labtools.curativeinc.com/api/v1/testing_sites/",
+    "scraperParams": {
+      "curativeSiteId": "24182"
+    },
+    "tz": "-05:00",
+    "zip": "01129",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "1655 Boston Rd, Springfield, MA 01129",
+    "linkUrl": "https://curative.com/sites/24182#9/",
+    "siteType": "indoor",
+    "siteInstructions": "Parking can be found on the north end of the mall complex. Both entry and exit can be found on the north end of the facility (Macy's).",
+    "accessibility": "Wheelchairs are available on-site for guest use and there is accessible drop off and pick up. Ramp accessibility is available. Additional accommodations for entry and exit are available."
+  },
+  {
+    "uuid": "e8af47a4-9bca-40ba-9700-47ca6209813e",
+    "name": "Amesbury Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01913",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "100 Macy Street, Amesbury, MA 01913",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": "Wheelchairs are available on-site for guest use and there is accessible drop off and pick up. Ramp accessibility is available. Additional accommodations for entry and exit are available."
+  },
+  {
+    "uuid": "c397c7cd-4ccd-4340-966d-5356aca0b885",
+    "name": "Amherst Regional High School",
+    "scraperClass": "amherst",
+    "scraperUrl": "https://www.amherstcovid19.org/vaccine",
+    "scraperParams": {},
+    "tz": "-05:00",
+    "zip": "01002",
+    "state": "MA",
+    "serves": "Eligible residents in Amherst, Belchertown, Granby, Hadley, Hatfield, Pelham, South Hadley, Ware",
+    "address": "21 Matoon St, Amherst, MA 01002",
+    "linkUrl": "https://www.amherstcovid19.org/vaccine",
+    "siteType": "indoor",
+    "siteInstructions": "Park in parking lot",
+    "accessibility": ""
+  },
+  {
+    "uuid": "c28ab78c-c890-48f6-9333-2736a6575f9d",
+    "name": "Pediatric Associates of Greater Salem",
+    "scraperClass": "athena",
+    "scraperUrl": "https://consumer.scheduling.athena.io/?departmentId=2804-102",
+    "scraperParams": {
+      "locationId": "2804-102",
+      "contextId": "2804"
+    },
+    "tz": "-05:00",
+    "zip": "01915",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "30 Tozer Rd Beverly, MA 01915",
+    "linkUrl": "https://consumer.scheduling.athena.io/?departmentId=2804-102",
+    "siteType": "indoor",
+    "siteInstructions": "Enter through rear of the building and follow signage",
+    "accessibility": ""
+  },
+  {
+    "uuid": "c62ce219-a538-4d34-982c-0a8fddfb573f",
+    "name": "Fenway Park",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=fenway&search_radius=All",
+    "scraperParams": {
+        "titleName": "Fenway Park"
+    },
+    "tz": "-05:00",
+    "zip": "02215",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "4 Jersey St, Boston, MA 02215",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=fenway&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "",
+    "accessibility": "The entire path of travel from arrival/drop-off (Gate A on Jersey Street) to exit (Gate E on Lansdowne Street) is fully accessible via ramps and walkways. There are wheelchairs available on-site for any guests that need assistance and staff available to assist with mobility issues. A language line and a visual language line are available on site. There are chairs throughout the queuing process to give guests a break."
+  },
+  {
+    "uuid": "5e674bef-542d-497b-bb8e-06a5534b3e81",
+    "name": "Reggie Lewis Center (Roxbury Community College)",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=reggie+lewis&search_radius=All",
+    "scraperParams": {
+        "titleName": "Reggie Lewis State Track Athletic Ctr"
+    },
+    "tz": "-05:00",
+    "zip": "02120",
+    "state": "MA",
+    "serves": "Eligible populations in Boston",
+    "address": "1350 Tremont St, Roxbury, MA 02120",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=reggie+lewis&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "This clinic is intended for all eligible priority groups per the Commonwealth of Massachusetts’ vaccine distribution timeline that live or work in the City of Boston, regardless of immigration status. ID is not required. Pre-registration for this vaccination clinic is required.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "aedd2abe-5073-44d5-ad8f-8c8a27c2a074",
+    "name": "Waltham Hannaford",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "52076",
+      "appointmentTypeId": "5954"
+    },
+    "tz": "-05:00",
+    "zip": "02453",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "55 Russell St., Waltham, MA 02453",
+    "linkUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "Please use the website scheduler before calling Hannaford. Please do not call the pharmacy if no appointments are available; instead, check back later for additional openings. All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "3225f157-1334-498c-b14b-827bcf1b1c7f",
+    "name": "Danvers Doubletree Hotel",
+    "scraperClass": "curative",
+    "scraperUrl": "https://labtools.curativeinc.com/api/v1/testing_sites/",
+    "scraperParams": {
+        "curativeSiteId": "24181"
+    },
+    "tz": "-05:00",
+    "zip": "01923",
+    "state": "MA",
+    "serves": "Eligible populations in Brockton",
+    "address": "50 Ferncroft Rd, Danvers, MA 01923",
+    "linkUrl": "https://curative.com/sites/24181",
+    "siteType": "indoor",
+    "siteInstructions": "Two areas of parking are available just west of the facility. Entry can be found on the north end of the Grand Ballroom complex. Exit can be found on the west end of the Grand Ballroom complex. ",
+    "accessibility": "Wheelchairs are available on-site for guest use and there is accessible drop off and pick up. Ramp accessibility is available. Additional accommodations for entry and exit are available."
+  },
+  {
+    "uuid": "0915636c-e400-4438-bf86-19456be828de",
+    "name": "W.E.B. Dubois Regional Middle School",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=dubois&search_radius=All",
+    "scraperParams": {
+        "titleName": "W.E.B. Dubois Regional Middle School"
+    },
+    "tz": "-05:00",
+    "zip": "01230",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "313 Monument Valley Rd, Great Barrington, MA 01230",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=dubois&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Bring ID to prove eligibility. Wear a loose-fitting or short-sleeved shirt.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "d61917d8-520a-490a-aba0-64a49b4e356d",
+    "name": "Lowell Senior Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=lowell+senior+center&search_radius=All",
+    "scraperParams": {
+        "titleName": "Lowell Senior Center"
+    },
+    "tz": "-05:00",
+    "zip": "01854",
+    "state": "MA",
+    "serves": "Eligible populations in Barnstable County",
+    "address": "276 Broadway St, Lowell, MA 01854",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=lowell+senior+center&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Follow signage",
+    "accessibility": ""
+  },
+  {
+    "uuid": "44b4e45e-f9b6-4ae6-b4ef-3347fdbf6ab4",
+    "name": "Marshfield Fairgrounds",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=marshfield+fairgrounds&search_radius=All",
+    "scraperParams": {
+        "titleName": "Marshfield Fairgrounds"
+    },
+    "tz": "-05:00",
+    "zip": "02050",
+    "state": "MA",
+    "serves": "Eligible populations in Plymouth County ",
+    "address": "140 Main St, Marshfield, MA 02050",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=marshfield+fairgrounds&search_radius=All",
+    "siteType": "driveThrough",
+    "siteInstructions": "Appointment required. Please dress with easy access to receive the shot in your car. This site is a drive-thru center. Last shot of the day given at 4pm.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "886509b9-4acc-4e5b-88d4-8c3586f68f03",
+    "name": "Needham Public Health Clinic--Center at the Heights",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=needham+public+health&search_radius=All",
+    "scraperParams": {
+        "titleName": "Needham Public Health - Center at the Heights"
+    },
+    "tz": "-05:00",
+    "zip": "02494",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "300 Hillside Avenue, Needham, MA 02494",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=needham+public+health&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Please provide proof of eligibility to receive the vaccine",
+    "accessibility": ""
+  },
+  {
+    "uuid": "e9f07497-d83d-4447-9a6e-56e48ff4b2a4",
+    "name": "St. Elizabeth of Hungary Church",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=elizabeth+hungary&search_radius=All",
+    "scraperParams": {
+        "titleName": "St. Elizabeth of Hungary Parish"
+    },
+    "tz": "-05:00",
+    "zip": "01247",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "70 Marshall St., North Adams, MA 01247",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=elizabeth+hungary&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Bring ID to prove eligibility. Wear a loose-fitting or short-sleeved shirt.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "4c5a05c3-01c4-475a-a838-6638cd6b14fa",
+    "name": "Orleans Department of Public Works",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=orleans+dpw&search_radius=All",
+    "scraperParams": {
+        "titleName": "Orleans DPW"
+    },
+    "tz": "-05:00",
+    "zip": "02653",
+    "state": "MA",
+    "serves": "Eligible populations in Barnstable County",
+    "address": "40 Giddiah Hill Rd, Orleans, MA 02653",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=orleans+dpw&search_radius=All",
+    "siteType": "driveThrough",
+    "siteInstructions": "Follow the directions of flow on site. If you are placed on the waitlist, we will contact you via email if you receive an appointment.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "9662685d-515f-4ab2-93da-f5cfc106be7d",
+    "name": "Worcester Senior Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=worcester+senior+center&search_radius=All",
+    "scraperParams": {
+        "titleName": "Worcester Senior Center"
+    },
+    "tz": "-05:00",
+    "zip": "01604",
+    "state": "MA",
+    "serves": "Eligible populations who live or work in Grafton, Holden, Millbury, Shrewsbury, West Boylston, Worcester",
+    "address": "128 Providence Street, Worcester, MA 01604",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=worcester+senior+center&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "",
+    "accessibility": ""
+  },
+  {
+    "uuid": "54a67f07-9964-44d4-920f-8db6d5a2894b",
+    "name": "Saint Vincent Hospital Vaccine Collaborative @ Worcester State University - Wellness Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=saint+vincent&search_radius=All",
+    "scraperParams": {
+        "titleName": "Saint Vincent Hospital Vaccine Collaborative @ Worcester State University - Wellness Center"
+    },
+    "tz": "-05:00",
+    "zip": "01602",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "486 Chandler Street, Worcester MA, 01602",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=saint+vincent&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "By Appointment Only - Arrive 15min before schedule appointment BRING PHOTO ID AND INSURANCE CARDS Do not enter the building until 5 min before your scheduled appt time MASKS are required and must be worn properly at all times Wear clothing that allows a clinician to easily access your upper arm. The vaccine is delivered to the deltoid muscle, the big muscle on your shoulder. Consider wearing a short-sleeved shirt, or wear a short-sleeved shirt under a sweater or jacket that can be easily removed.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "0a379503-2cbc-4316-90ad-c9c60976e61c",
+    "name": "Greenfield Senior Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=greenfield+senior+center&search_radius=All",
+    "scraperParams": {
+        "titleName": "Greenfield Senior Center"
+    },
+    "tz": "-05:00",
+    "zip": "01301",
+    "state": "MA",
+    "serves": "Eligible populations in Franklin County",
+    "address": "35 Pleasant Street, Greenfield MA, 01301",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=greenfield+senior+center&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "This clinic is for eligible residents in Franklin County under phase 1 and 2 of the vaccination plan. If you have received a vaccination from another clinic you can not schedule your second vaccination at this clinic currently.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "340be182-e8f7-4670-9389-3327835a6f64",
+    "name": "Paxton Public Safety Complex",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=paxton+public+safety&search_radius=All",
+    "scraperParams": {
+        "titleName": "Paxton Public Safety Complex"
+    },
+    "tz": "-05:00",
+    "zip": "01612",
+    "state": "MA",
+    "serves": "Eligible populations in Paxton",
+    "address": "576 Pleasant St. , Paxton MA, 01612",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=paxton+public+safety&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "This clinic is for Paxton residents aged 75 and up ONLY. Registrations will be screened for eligibility and your appointment will be cancelled if you do not meet these eligibility criteria. Please arrive at your scheduled time and park in the upper lot near the main door. If you arrive early, you may be asked to wait in your car until your appointment time or leave and return at your scheduled time, due to the need for proper social distancing in the clinic. Please bring an ID with you for proof of residency and age, as well as your insurance cards.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "61459b60-9838-45b0-a666-210453123a1e",
+    "name": "Melrose Memorial Hall",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=memorial+hall&search_radius=All",
+    "scraperParams": {
+        "titleName": "Memorial Hall"
+    },
+    "tz": "-05:00",
+    "zip": "02176",
+    "state": "MA",
+    "serves": "Eligible populations in Malden, Medford, Melrose, Stoneham, Wakefield, Winchester",
+    "address": "590 Main Street, Melrose, MA 02176",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=memorial+hall&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Book appointment online, enter in lobby, wear a mask",
+    "accessibility": ""
+  },
+  {
+    "uuid": "979a1f41-93a2-42f1-9521-a1b7944429f8",
+    "name": "Tree House Deerfield",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=tree+house+deerfield&search_radius=All",
+    "scraperParams": {
+        "titleName": "Tree House Deerfield"
+    },
+    "tz": "-05:00",
+    "zip": "01373",
+    "state": "MA",
+    "serves": "Eligible populations in Franklin County",
+    "address": "One Community Place, South Deerfield MA, 01373",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=tree+house+deerfield&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "This clinic serves eligible populations in Franklin County. Instructions: Plan on arriving no more than ten minutes before your appointment. Please wear a t-shirt under your sweater or coat so we can reach your shoulder for the vaccine. You will be asked to wait for at least 15 minutes after your vaccination. It is best to use Chrome, FireFox or Safari as your browser to register online. This clinic is located off route 5 in the former Channing Bete building.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "c2617b16-a7b0-4f36-a3a6-0a86d5db9554",
+    "name": "Salemwood School",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=salemwood+school&search_radius=All",
+    "scraperParams": {
+        "titleName": "Salemwood School"
+    },
+    "tz": "-05:00",
+    "zip": "02148",
+    "state": "MA",
+    "serves": "Eligible populations in Malden",
+    "address": "529 Salem Street, Malden MA, 02148",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=salemwood+school&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "**MALDEN RESIDENTS ONLY** This Clinic is for Malden residents eligible in Phase 1 or 75 years old or older only. All attendees will be required to show identification and those Phase 1 attendees must provide employment information upon request.",
+    "accessibility": ""
+  }
+]

@@ -1,0 +1,24 @@
+[
+
+
+  {
+    "uuid": "80056a17-e7b5-4b81-b2cc-e66f8c542d84",
+    "name": "West Springfield Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51445",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01089",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "935 Riverdale Street, W. Springfield MA 01089",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  }
+]

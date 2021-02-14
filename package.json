@@ -1,0 +1,18 @@
+{
+  "name": "findvax-scraper",
+  "version": "1.0.0",
+  "description": "Tool for scraping vaccine locations to get availability info. Part of https://findvax.us ",
+  "main": "scrape.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pettazz",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bunyan": "^1.8.15",
+    "cheerio": "^1.0.0-rc.5",
+    "dayjs": "^1.10.4",
+    "nightmare": "^3.0.2"
+  }
+}

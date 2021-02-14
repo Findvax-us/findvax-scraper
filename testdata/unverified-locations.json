@@ -1,0 +1,660 @@
+[
+  {
+    "uuid": "b715bba2-599e-489d-9889-533e242cf3a9",
+    "name": "Brockton High School",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=brockton+high+school&search_radius=All",
+    "scraperParams": {
+        "titleName": "Brockton High School"
+    },
+    "tz": "-05:00",
+    "zip": "02301",
+    "state": "MA",
+    "serves": "Eligible populations in Brockton",
+    "address": "470 Forest Ave, Brockton, MA 02301",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=brockton+high+school&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Please make an appointment. For assistance with booking, please call the Brockton Health Department at: 508-894-1480.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "ac0fab52-bfb1-4da5-b6d2-c34ebb4338a2",
+    "name": "Canton Health Department",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=canton+health+department&search_radius=All",
+    "scraperParams": {
+        "titleName": "Canton Health Department"
+    },
+    "tz": "-05:00",
+    "zip": "02021",
+    "state": "MA",
+    "serves": "Eligible populations in Canton",
+    "address": "79 Pleasant Street Canton, MA 02021",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=canton+health+department&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Pre-registration and appropriate verification required",
+    "accessibility": ""
+  },  
+  {
+    "uuid": "3225f157-1334-498c-b14b-827bcf1b1c7f",
+    "name": "Danvers Doubletree Hotel",
+    "scraperClass": "curative",
+    "scraperUrl": "https://labtools.curativeinc.com/api/v1/testing_sites/",
+    "scraperParams": {
+        "curativeSiteId": "24181"
+    },
+    "tz": "-05:00",
+    "zip": "01923",
+    "state": "MA",
+    "serves": "Eligible populations in Brockton",
+    "address": "50 Ferncroft Rd, Danvers, MA 01923",
+    "linkUrl": "https://curative.com/sites/24181",
+    "siteType": "indoor",
+    "siteInstructions": "Two areas of parking are available just west of the facility. Entry can be found on the north end of the Grand Ballroom complex. Exit can be found on the west end of the Grand Ballroom complex. ",
+    "accessibility": "Wheelchairs are available on-site for guest use and there is accessible drop off and pick up. Ramp accessibility is available. Additional accommodations for entry and exit are available."
+  },
+  {
+    "uuid": "5b0e966d-7718-43ef-853f-734404702597",
+    "name": "Falmouth Fairgrounds",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=falmouth+fairgrounds&search_radius=All",
+    "scraperParams": {
+        "titleName": "Falmouth Fairgrounds"
+    },
+    "tz": "-05:00",
+    "zip": "02748",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "555 Bakerville Road, Dartmouth MA 02748",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=falmouth+fairgrounds&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Follow the directions of flow on site. If you are placed on the waitlist, we will contact you via email if you receive an appointment.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "be9d1785-fc22-48bf-b5b5-d643b53d08fa",
+    "name": "Bristol Community College",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=dartmouth+high+school&search_radius=All",
+    "scraperParams": {
+        "titleName": "Bristol Community College"
+    },
+    "tz": "-05:00",
+    "zip": "02720",
+    "state": "MA",
+    "serves": "Eligible Populations Statewide",
+    "address": "777 Elsbree St, Fall River, MA 02720",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=dartmouth+high+school&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "This clinic is only open to those eligible per the distribution timeline. All individuals must have an appointment. Follow signs for vaccine clinic.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "b3cb5a3d-24cc-44f2-85f1-0ed6bb30952d",
+    "name": "Feeding Hills Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01030",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "1282 Springfield Street, Feeding Hills MA 01030",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": "Wheelchairs are available on-site for guest use and there is accessible drop off and pick up. Ramp accessibility is available. Additional accommodations for entry and exit are available."
+  },
+  {
+    "uuid": "631d3b0d-6128-465f-9ab9-ab424d000b9a",
+    "name": "Keefe Vocational Technical High School",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=keefe&search_radius=All",
+    "scraperParams": {
+        "titleName": "Keefe Vocational Technical High School"
+    },
+    "tz": "-05:00",
+    "zip": "01702",
+    "state": "MA",
+    "serves": "Eligible populations in Framingham",
+    "address": "750 Winter Street Framingham, MA 01702",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=keefe&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Masks required. Do not call the school; they do not have any clinic information.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "65b14a39-6a1b-4e63-b9a7-b6436ddf710d",
+    "name": "Halifax Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "02388",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "341 Plymouth Road, Halifax, MA 02388",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "65b14a39-6a1b-4e63-b9a7-b6436ddf710d",
+    "name": "Harwich Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "02645",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "111 Chatam Rd, Harwich MA 02645",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "0143b0e9-7993-4ad1-9e02-9ed06a2cf0a7",
+    "name": "Hopkinton Senior Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=hopkinton+senior+center&search_radius=All",
+    "scraperParams": {
+        "titleName": "Hopkinton Senior Center"
+    },
+    "tz": "-05:00",
+    "zip": "01748",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "28 Mayhew St Hopkinton MA 01748",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=hopkinton+senior+center&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Follow signage",
+    "accessibility": ""
+  },
+  {
+    "uuid": "6a37ac69-a681-40e8-bfd4-6b47b76b9b9f",
+    "name": "Hyannis Melody Tent",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=melody+tent&search_radius=All",
+    "scraperParams": {
+        "titleName": "Hyannis Melody Tent"
+    },
+    "tz": "-05:00",
+    "zip": "02601",
+    "state": "MA",
+    "serves": "Eligible populations in Barnstable County",
+    "address": "21 W Main St, Hyannis, MA 02601",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=melody+tent&search_radius=All",
+    "siteType": "driveThrough",
+    "siteInstructions": "Follow the directions of flow on site; enter off Scudder Ave. If you are placed on the waitlist, we will contact you via email if you receive an appointment.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "3149da8a-e844-47d6-9e0e-6ea1475d6327",
+    "name": "Hyannis Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "02601",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "425 Attucks Lane, Hyannis, MA 02601",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "79b6dc0f-a5d7-4c6b-b9f8-c57ad7e7124b",
+    "name": "Leominster Hannaford ",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01453",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "118 Lancaster St., Leominster, MA 01453",
+    "linkUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "Please use the website scheduler before calling Hannaford. Please do not call the pharmacy if no appointments are available; instead, check back later for additional openings. All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "79955237-cc8f-4ba8-b1c0-6601d26dac90",
+    "name": "Longmeadow Greenwood Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=greenwood&search_radius=All",
+    "scraperParams": {
+        "titleName": "Greenwood Center"
+    },
+    "tz": "-05:00",
+    "zip": "01106",
+    "state": "MA",
+    "serves": "Eligible populations in Longmeadow",
+    "address": "231 Maple Rd., Longmeadow, MA 01106",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=greenwood&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "",
+    "accessibility": ""
+  },
+  {
+    "uuid": "7dfb2ce7-2de9-4ba5-9e86-b76d8063cbc1",
+    "name": "Lynn Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01904",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "35 Washington Street, Lynn MA 01904",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "3a3d069b-eb21-4491-8478-3c0c89a7cebd",
+    "name": "Andrews Middle School",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=andrews+middle+school&search_radius=All",
+    "scraperParams": {
+        "titleName": "Andrews Middle School"
+    },
+    "tz": "-05:00",
+    "zip": "02155",
+    "state": "MA",
+    "serves": "Eligible populations in Malden, Medford, Melrose, Stoneham, Wakefield, Winchester",
+    "address": "3000 Mystic Valley Pkwy, Medford, MA 02155",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=andrews+middle+school&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Book appointment online, follow signage, enter through the gym, wear a masks",
+    "accessibility": ""
+  },,
+  {
+    "uuid": "1bb49091-fb00-4863-8279-db39c82b4a8c",
+    "name": "Middleborough Hannaford",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=melrose+memorial+hall&search_radius=All",
+    "scraperParams": {
+        "titleName": "Memorial Hall"
+    },
+    "tz": "-05:00",
+    "zip": "02176",
+    "state": "MA",
+    "serves": "Eligible populations in Malden, Medford, Melrose, Stoneham, Wakefield, Winchester",
+    "address": "590 Main Street, Melrose, MA 02176",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=melrose+memorial+hall&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Book appointment online, enter in lobby, wear a mask",
+    "accessibility": ""
+  },
+  {
+    "uuid": "5cf8fd2a-6be8-4c40-b8c5-1f14d07c2179",
+    "name": "North Adams Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01247",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "876 State Road. Rte 2, North Adams MA 01247",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "ce24a120-eadd-459a-b04b-e9a8223033a1",
+    "name": "North Reading Hillview Country Club",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=hillview+country+club&search_radius=All",
+    "scraperParams": {
+        "titleName": "Hillview Country Club"
+    },
+    "tz": "-05:00",
+    "zip": "01864",
+    "state": "MA",
+    "serves": "Eligible populations in North Reading ",
+    "address": "149 North St., North Reading, MA 01864",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=hillview+country+club&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Please stay in your car until your appointment. No one will be let in any sooner than 5 minutes before their appointment.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "b3c000a2-05aa-4c8d-8ade-3640f3994991",
+    "name": "Orleans Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "02653",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "Route 3 6A Cranberry Cove Plaza, Orleans MA 02653",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "fa095b87-fcb2-412b-bb84-fc9b1f2c7de1",
+    "name": "Converse Middle School",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=converse+school&search_radius=All",
+    "scraperParams": {
+        "titleName": "Converse Middle School"
+    },
+    "tz": "-05:00",
+    "zip": "01069",
+    "state": "MA",
+    "serves": "Eligible populations in Brimfield, Hampden, Holland, Ludlow, Monson, Palmer, Sturbridge, Warren, Wales, West Brookfield, Wilbraham",
+    "address": "24 Converse Street, Palmer, MA 01069",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=converse+school&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Park in second lot, and enter through double glass doors.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "5ae96a79-9001-4012-8bc4-a55df1ed35f8",
+    "name": "Peabody Health Department",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=peabody+health&search_radius=All",
+    "scraperParams": {
+        "titleName": "Peabody Health Department"
+    },
+    "tz": "-05:00",
+    "zip": "01960",
+    "state": "MA",
+    "serves": "Eligible populations living in Peabody",
+    "address": "24 Lowell Street, Peabody MA 01960",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=peabody+health&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "",
+    "accessibility": ""
+  },
+  {
+    "uuid": "8208ae77-efdd-4cb2-85a1-6d96a0f61deb",
+    "name": "Berkshire Community College Paterson Field House",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=berkshire+community+college&search_radius=All",
+    "scraperParams": {
+        "titleName": "Berkshire Community College Field House"
+    },
+    "tz": "-05:00",
+    "zip": "01201",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "1350 West St., Pittsfield, MA 01201",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=berkshire+community+college&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Bring ID to prove eligibility. Wear a loose-fitting or short-sleeved shirt.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "e6d05f7d-01af-4422-8d2d-58e65b241272",
+    "name": "Pittsfield Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01201",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "Dan Fox Drive, Pittsfield MA 01201",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "8f7b2878-9630-4584-a689-1ed9c4aa07e7",
+    "name": "Randolph Intergenerational Community Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=randolph+community&search_radius=All",
+    "scraperParams": {
+        "titleName": "Intergenerational Community Center"
+    },
+    "tz": "-05:00",
+    "zip": "02368",
+    "state": "MA",
+    "serves": "Eligible populations in Avon, Holbrook, and Randolph",
+    "address": "128 Pleasant St, Randolph 02368",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=randolph+community&search_radius=All",
+    "siteType": "driveThrough",
+    "siteInstructions": "Wear loose-fitting clothing, bring insurance card if have one (everyone accepted)",
+    "accessibility": ""
+  },
+  {
+    "uuid": "b62f64b5-4a97-4843-9def-4df488c8b279",
+    "name": "Salem State South Campus, Gymnasium",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=randolph+community&search_radius=All",
+    "scraperParams": {
+        "titleName": "Salem State"
+    },
+    "tz": "-05:00",
+    "zip": "01970",
+    "state": "MA",
+    "serves": "Eligible populations in Beverly, Danvers, Marblehead, Salem, and Swampscott",
+    "address": "99 Harrison Rd, Salem, MA 01970",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=randolph+community&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Remain in the car until appointment time; enter from the gymnasium",
+    "accessibility": ""
+  },
+  {
+    "uuid": "75a15786-4b2f-435c-ae13-6bf189c533e0",
+    "name": "Stoughton Senior Center",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=randolph+community&search_radius=All",
+    "scraperParams": {
+        "titleName": "Stoughton Senior Center"
+    },
+    "tz": "-05:00",
+    "zip": "02072",
+    "state": "MA",
+    "serves": "Eligible populations in Stoughton",
+    "address": "110 Rockland St, Stoughton, MA 02072",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=randolph+community&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Wear short sleeves, please bring insurance card",
+    "accessibility": ""
+  },
+  {
+    "uuid": "f5ff8764-6f7e-4cae-b6b4-4c8233ff9393",
+    "name": "Swampscott Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01907",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "450 Paradise Rd, Swampsott MA 01907",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "85014308-65d3-4c7b-872c-fcdb83606118",
+    "name": "Taunton Hannaford",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "02780",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "255 Joseph E. Warner Blvd., Taunton, MA 02780",
+    "linkUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "Please use the website scheduler before calling Hannaford. Please do not call the pharmacy if no appointments are available; instead, check back later for additional openings. All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "8ae90002-44b9-433f-87fb-b068971bce59",
+    "name": "Uxbridge Hannaford",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01569",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "158 No. Main St. Suite 3, Uxbridge, MA 01569",
+    "linkUrl": "https://hannafordsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "Please use the website scheduler before calling Hannaford. Please do not call the pharmacy if no appointments are available; instead, check back later for additional openings. All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "3f035e07-1409-4e51-8369-1923e813563d",
+    "name": "Wakefield Office Park",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=wakefield+office&search_radius=All",
+    "scraperParams": {
+        "titleName": "Wakefield Office Park"
+    },
+    "tz": "-05:00",
+    "zip": "01880",
+    "state": "MA",
+    "serves": "Eligible populations in Malden, Medford, Melrose, Stoneham, Wakefield, Winchester",
+    "address": "200 Quannapowitt Pkwy, Wakefield, MA 01880",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=wakefield+office&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Book appointment online, enter in lobby, wear a mask",
+    "accessibility": ""
+  },
+  {
+    "uuid": "b55fb5ca-d105-4b02-a049-2e6769702459",
+    "name": "Walpole Town Hall",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=walpole+town+hall&search_radius=All",
+    "scraperParams": {
+        "titleName": "Walpole Town Hall"
+    },
+    "tz": "-05:00",
+    "zip": "02081",
+    "state": "MA",
+    "serves": "Eligible populations in Malden, Medford, Melrose, Stoneham, Wakefield, Winchester",
+    "address": "135 School Street, Walpole, MA 02081",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=walpole+town+hall&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "Book appointment online, enter in lobby, wear a mask",
+    "accessibility": ""
+  },
+  {
+    "uuid": "80056a17-e7b5-4b81-b2cc-e66f8c542d84",
+    "name": "West Springfield Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01089",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "935 Riverdale Street, W. Springfield MA 01089",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  },
+  {
+    "uuid": "762bca29-28a3-4dff-a6e9-0dea5e7b960e",
+    "name": "Weston Town Hall",
+    "scraperClass": "prepmod",
+    "scraperUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=weston+town+hall&search_radius=All",
+    "scraperParams": {
+        "titleName": "Weston Town Hall"
+    },
+    "tz": "-05:00",
+    "zip": "02493",
+    "state": "MA",
+    "serves": "Eligible populations in Malden, Medford, Melrose, Stoneham, Wakefield, Winchester",
+    "address": "11 Town House Rd, Weston, MA 02493",
+    "linkUrl": "https://www.maimmunizations.org/clinic/search?commit=Search&q%5Bvenue_search_name_or_venue_name_i_cont%5D=weston+town+hall&search_radius=All",
+    "siteType": "indoor",
+    "siteInstructions": "",
+    "accessibility": ""
+  },
+  {
+    "uuid": "cdb50068-f673-4cb2-bfbd-1369bdfb1e16",
+    "name": "Woburn Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51447",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "01801",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "2 Elm Street, Woburn MA 01801",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
+  }
+]
