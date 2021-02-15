@@ -397,5 +397,25 @@
     "siteType": "indoor",
     "siteInstructions": "**MALDEN RESIDENTS ONLY** This Clinic is for Malden residents eligible in Phase 1 or 75 years old or older only. All attendees will be required to show identification and those Phase 1 attendees must provide employment information upon request.",
     "accessibility": ""
+  },
+  {
+    "uuid": "1497338f-2b14-4568-b66c-e9b767f19836",
+    "name": "Arlington: Family Practice Group, PC",
+    "scraperClass": "timetap",
+    "scraperUrl": "https://bookfpg.timetap.com",
+    "scraperParams": {
+      "businessId": "341289",
+      "schedulerLinkId": "217734",
+      "businessTimeZone": "America/New_York"
+    },
+    "tz": "-05:00",
+    "zip": "02476",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "11 Water Street Suite 1-A Arlington MA 02476",
+    "linkUrl": "https://bookfpg.timetap.com/#/",
+    "siteType": "indoor",
+    "siteInstructions": "Enter building at 5 Water St and knock on door.",
+    "accessibility": ""
   }
 ]

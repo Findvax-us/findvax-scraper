@@ -19,5 +19,8 @@ module.exports = {
   },
   athena: {
     daysToSearch: 14
+  },
+  timetap: {
+    daysToSearch: 14
   }
 };
