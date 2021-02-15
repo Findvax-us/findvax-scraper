@@ -58,8 +58,8 @@ const defaultErrorHandler = (error, that) => {
 const call = (method, url, data, headers, timeout, that, successHandler, errorHandler) => {
 
   that.logger.addSerializers({
-    response: responseLoggingSerializer,
-    error: errorLoggingSerializer
+    axiosResponse: responseLoggingSerializer,
+    axiosError: errorLoggingSerializer
   })
 
   const defaultHeaders = {
@@ -94,7 +94,7 @@ const call = (method, url, data, headers, timeout, that, successHandler, errorHa
   return axios(reqconf)
            .then(response => {
              that.logger.info(`${response.status} ${response.statusText}`);
-             that.logger.trace({response: response});
+             that.logger.trace({axiosResponse: response});
               try{
                 return successHandler(response.data, that)
               }catch(handlerError){
@@ -105,7 +105,7 @@ const call = (method, url, data, headers, timeout, that, successHandler, errorHa
            })
            .catch(err => {
               that.logger.error('Error making request');
-              that.logger.error({error: err});
+              that.logger.error({axiosError: err});
               return errorHandler(err, that)
           });
 }
