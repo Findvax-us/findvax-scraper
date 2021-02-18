@@ -66,30 +66,24 @@ class StopNShop extends NightmareScraper{
 
     const myDate = resDay.Date;
 
-      if(resDay.Rows.length > 0){
-        let times = [];
+    if(resDay.Rows.length > 0){
+      let times = [];
 
-        resDay.Rows.forEach(row => {
-          let dateObj = new Date(`${myDate} ${row.TimeSlotTime.Hours}:${row.TimeSlotTime.Minutes} GMT ${this.tz}`);
+      resDay.Rows.forEach(row => {
+        let dateObj = new Date(`${myDate} ${row.TimeSlotTime.Hours}:${row.TimeSlotTime.Minutes} GMT ${this.tz}`);
 
-          times.push({
-            allDay: false,
-            date: dateObj.toISOString(),
-            slots: 1
-          });
-        })
-
-        return times;
-      }else{
-
-        let dateObj = new Date(`${myDate} GMT ${this.tz}`);
-
-        return [{
-          allDay: true,
+        times.push({
+          allDay: false,
           date: dateObj.toISOString(),
-          slots: 0
-        }];
-      }
+          slots: 1
+        });
+      })
+
+      return times;
+    }else{
+      this.logger.info(`No time slots available on ${resDay.Date}`);
+      return [];
+    }
   }
   
 }

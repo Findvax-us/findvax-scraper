@@ -51,13 +51,13 @@ class TimeTap extends SimpleScraper{
                  body = `{"auditReferralId":null,"debug":false,"locale":"en-us","businessId":${this.params.businessId},"schedulerLinkId":${this.params.schedulerLinkId},"staffIdList":null,"reasonIdList":[595361],"locationIdList":null,"locationGroupIdList":null,"reasonGroupIdList":null,"locationSuperGroupIdList":null,"reasonSuperGroupIdList":null,"classScheduleIdList":null,"groupIdList":null,"clientTimeZone":"${this.params.businessTimeZone}","businessTimeZone":"${this.params.businessTimeZone}"}`;
 
            promiseQ.push(
-             formatter.format(req.post(url, body, headers, null, this, this.parse), this.uuid)
+             req.post(url, body, headers, null, this, this.parse)
            );
          }
 
-         return Promise.all(promiseQ).then(results => {
+         return formatter.format(Promise.all(promiseQ).then(results => {
            return results.flat(1);
-         });
+         }), this.uuid);
 
        })
        .catch(error => {

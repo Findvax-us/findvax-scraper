@@ -17,10 +17,16 @@ class Prepmod extends SimpleScraper{
 
       strongTag.replaceWith('');
 
-      return {
-        allDay: true,
-        date: dateObj.toISOString(),
-        slots: parseInt(apptContainer.text())
+      const slotCount = parseInt(apptContainer.text());
+
+      if(slotCount > 0){
+        return {
+          allDay: true,
+          date: dateObj.toISOString(),
+          slots: slotCount
+        }
+      }else{
+        return;
       }
     }).toArray();
 

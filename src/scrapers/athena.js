@@ -72,7 +72,7 @@ class Athena extends SimpleScraper{
       });
     }else{
       this.logger.info("No schedule search slots found");
-      return [];
+      return;
     }
   }
   

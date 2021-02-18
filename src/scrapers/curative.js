@@ -13,10 +13,14 @@ class Curative extends SimpleScraper{
               const startTime = new Date(appt.start_time),
                     slots = parseInt(appt.slots_available);
 
-              return {
-                allDay: false,
-                date: startTime.toISOString(),
-                slots: slots
+              if(slots > 0){
+                return {
+                  allDay: false,
+                  date: startTime.toISOString(),
+                  slots: slots
+                }
+              }else{
+                return null;
               }
             }
           });
