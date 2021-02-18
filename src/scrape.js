@@ -9,6 +9,7 @@ const util = require('util'),
       fs = require('fs');
 
 const inFile = 'testdata/verified-locations.json';
+const outFile = 'testdata/availability.json';
 
 let locations;
 
@@ -100,6 +101,16 @@ locations.forEach(location => {
 });
 
 Promise.all(q).then(results => {
+  
   console.log(util.inspect(results, false, null, true));
+
+  try{
+    fs.writeFileSync(outFile, JSON.stringify(results), 'utf8');
+  }catch(err){
+    console.error(`Couldn't write output json: ${err}`);
+    process.exitCode = 1;
+    process.exit();
+  }
+
   clearInterval(metricsLoggerInterval);
 });
