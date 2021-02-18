@@ -417,5 +417,25 @@
     "siteType": "indoor",
     "siteInstructions": "Enter building at 5 Water St and knock on door.",
     "accessibility": ""
+  },
+  {
+    "uuid": "e08902ed-c008-4067-a57b-0dba490cc311",
+    "name": "Fall River Stop & Shop",
+    "scraperClass": "stopnshop",
+    "scraperUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "scraperParams": {
+      "dayEndpoint": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Calendar/PatientCalendarDay",
+      "facilityId": "51433",
+      "appointmentTypeId": "5957"
+    },
+    "tz": "-05:00",
+    "zip": "02721",
+    "state": "MA",
+    "serves": "Eligible populations statewide",
+    "address": "501 Rodman Street Fall River MA 02721",
+    "linkUrl": "https://stopandshopsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory",
+    "siteType": "indoor",
+    "siteInstructions": "All patients are required to wear a mask. Vaccine is available by appointment only to those that are designated to be vaccinated according to the states priority groups. Please do not arrive at the pharmacy more than five minutes before your scheduled appointment time. Bring your driver’s license and insurance card. All patients will be asked to wait in the pharmacy area for a required observation for 15-30 minutes after receiving their vaccination.",
+    "accessibility": ""
   }
 ]
