@@ -175,9 +175,9 @@ const runS3BasedScrape = () => {
 
     return scrape(locations).then(results => {
 
-      let expiration = dayjs(new Date()).add(5, 'minute').toString();
+      let expiration = dayjs(new Date()).add(5, 'minute').toISOString();
 
-      params = {
+      const params = {
         Bucket: 'findvax-data',
         Key: 'MA/availability.json', // TODO: states lol
         Body: JSON.stringify(results),
@@ -196,17 +196,18 @@ const runS3BasedScrape = () => {
         
       }catch(err){
         console.error(`Couldn't write output json to S3: ${err}`);
-        process.exitCode = 1;
-        process.exit();
+        throw err;
       }
 
       clearInterval(metricsLoggerInterval);
     }).catch((err) => {
-      console.error(`Couldn't scrape: ${err}`);  
+      console.error(`Couldn't scrape: ${err}`);
+      throw err;  
     });
   })
   .catch(err => {
     console.error(`Couldn't load locations from S3: ${err}`);
+    throw err;
   });
 }
 
