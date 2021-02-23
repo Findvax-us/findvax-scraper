@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+MYDIR=$(cd $(dirname $0) && pwd)
+# i live in ./tools
+BASEDIR=$MYDIR/..
+
+BUILD_TARGET_DIR=$BASEDIR/build
+BUILD_TMP_DIR=$BASEDIR/build/tmp
+
+rm -r $BUILD_TARGET_DIR
+mkdir -p $BUILD_TMP_DIR
+
+# making this a little parameterizable in case we have multiple functions
+# in the future
+
+functionName="scraper"
+echo "----------------------------"
+echo " copying files to build tmp"
+echo "----------------------------"
+cp -r $BASEDIR/src/* $BUILD_TMP_DIR
+cp -r $BASEDIR/node_modules $BUILD_TMP_DIR
+
+
+echo "----------------------------"
+echo "       building .zip"
+echo "----------------------------"
+cd $BUILD_TMP_DIR
+zip -rX $BUILD_TARGET_DIR/$functionName.zip *  -x "*/\.DS_Store"
+
+echo "----------------------------"
+echo "      updating lambda"
+echo "----------------------------"
+aws lambda update-function-code\
+    --profile findvax\
+    --function-name $functionName\
+    --zip-file "fileb://$BUILD_TARGET_DIR/$functionName.zip"\
+    --output json \
+  | jq -r '.LastUpdateStatus'

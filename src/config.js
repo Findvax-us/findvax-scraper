@@ -1,13 +1,14 @@
 module.exports = {
   appName: "JabzoneScraper",
-  debug: false,
+  debug: false, // boolean, writes extra logging
   logging: {
     level: "info",
-    stdout: false,
-    file: "./logs/log.json"
+    stdout: true, //boolean
+    file: false // else a path like "./logs/log.json"
   },
   metrics: {
-    file: "./logs/metrics.json"
+    stdout: true, //boolean
+    file: false // else a path like "./logs/metrics.json"
   },
   http: {
     timeout: 10000,

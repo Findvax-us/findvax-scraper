@@ -1,4 +1,4 @@
-const config = require('../config');
+const config = require('./config');
 
 // do it in one place so we don't have to fix it in a million when it inevitably needs changing
 

@@ -2,15 +2,15 @@
 
 ## Scraper tools for finding vaccine availability
 
-Not yet meant for human consumption, but I think it's finally a solid base to build a bunch more scrapers.
+This is the thing that generates data to populate [findvax.us](https://findvax.us).
 
 This is MA focused right now because that's where I live and they gave me a helpful spreadsheet of locations but I'm avoiding state-specificity as much as possible (everything is respecting timezones, etc). I think the ideal would be one big scraper for each state generating a bunch of jsons organized by state? 
 
 `testdata/` contains a bunch of MA locations in json format. `verified-locations.json` means I successfully tested them with scrapers and was able to get data (even if it was 0 availability). Items in `unverified-locations.json` are the opposite, typically because they haven't yet appeared in results yet. Hannaford/Stop & Shop locations in `unverified` are locations we know *exist* in the scheduler but haven't had open appointments yet so I haven't been able to get the correct `scraperParams.facilityId` for them.
 
-`src/scrape.js` is the main entrypoint. It consumes some "locations" json and generates a bunch of json that's meant to be consumed by a frontend that doesn't exist yet. For now it just pretty prints it right to stdout for you to enjoy. 
+`src/scrape.js` is the main entrypoint, broken into a few functions to split between a local run (using local filesystem files for input and output) and a run on AWS Lambda (using S3 data bucket for input/output). It consumes some "locations" json and generates a bunch of json that's meant to be consumed by [the frontend](https://github.com/pettazz/findvax-site).
 
-Prefer making direct http requests over literal browser based html scraping, but uses [nightmare](https://github.com/segmentio/nightmare) for things that require a real browser instance as a relatively lightweight alternative to selenium or some other webdriver type thing.
+Currently only making direct http requests over literal browser based html scraping, but if needed 
 
 ### How to do the dang thing:
 
@@ -23,15 +23,16 @@ Prefer making direct http requests over literal browser based html scraping, but
 
 #### Run
 
-1. at the top of `src/scrape.js` edit `const inFile = '../testdata/location-test.json';` to point one of the test locations jsons, or edit `location-test.json` to contain the specific locations you want to try scraping.
-2. `./src/scrape.js`
-3. results json will be printed to stdout
+1. edit `src/config.js` settings (checked in version is what runs in prod, so not ideal local dev)
+2. at the top of `src/scrape.js` edit `const inFile = 'testdata/location-test.json';` to point one of the test locations jsons, along with the corresponding `outFile` for wherever you want the output to end up.
+3. `.demo.sh`
+4. results json will be printed to stdout and written to the `outFile`
 
 Logging is all bunyan, so you can do something like `tail -f logs/log.json | ./node_modules/.bin/bunyan` to get nicely formatted realtime logs.
 
 ### What am I looking at
 
-`src/scrapers/` contains all the specific scraper type classes. Everything is a subclass of `Base` which sets up the loggers and whatnot, and currently two intermediate base classes exist: `NightmareScraper` (for browser instance based stuff) and `SimpleScraper` (if you can do it all with some GET/POSTs). A very simple html example is `amherst.js` which extends `SimpleScraper` to just GET the page and then `parse()` the html to figure out the slots. `athena.js` is an example of using the webapp's APIs directly: fetch the two required tokens, request the schedule json, reformat it for our purposes. `stopnshop.js` is ~~a mess~~ is a little of both, using nightmare to open a browser and establish a session, then using those session cookies to make API calls. 
+`src/scrapers/` contains all the specific scraper type classes. Everything is a subclass of `Base` which sets up the loggers and whatnot, and currently two intermediate base classes exist: ~~`NightmareScraper` (for browser instance based stuff)~~ and `SimpleScraper` (if you can do it all with some GET/POSTs). A very simple html example is `amherst.js` which extends `SimpleScraper` to just GET the page and then `parse()` the html to figure out the slots. `athena.js` is an example of using the webapp's APIs directly: fetch the two required tokens, request the schedule json, reformat it for our purposes. `stopnshop.js` is a remnant of the nightmare class, which has been removed because it can't run on Lambda. 
 
 ### Metrics
 
@@ -44,9 +45,6 @@ Lambda billing is in Gigabyte-seconds (memory used x runtime) and has a max runt
 - Have individual scrapers write their start/finish times to metrics (when enabled) 
 - Error handling: if one location fails it shouldn't kill the whole thing
 - Better (literally any) doc
-- Clean up `scrape.js` and organize writing results json 
-- Add `production` config option to represent whether we're running on AWS in a lambda and should be reading/writing to S3 instead of local testdata files
-- AWS deploy stuff
 - Results json organization: 
   - one big availability.json for everything in the state? 
   - how do we handle missing results/no response for a specific location? write the previous run's results into the new json?

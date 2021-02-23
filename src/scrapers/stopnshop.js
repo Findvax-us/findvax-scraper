@@ -1,9 +1,9 @@
-const config = require('../../config'),
+const config = require('../config'),
       NightmareScraper = require('./nightmareScraperBase'),
       req = require('../simpleRequest'),
       formatter = require('../availabilityFormatter');
 
-class StopNShop extends NightmareScraper{
+class StopNShop extends SimpleScraper{
 
   // hannaford uses the same system, but i did it for stop & shop first so they get the name
 

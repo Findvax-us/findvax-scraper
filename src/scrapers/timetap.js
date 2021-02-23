@@ -1,4 +1,4 @@
-const config = require('../../config'),
+const config = require('../config'),
       SimpleScraper = require('./simpleScraperBase'),
       req = require('../simpleRequest'),
       formatter = require('../availabilityFormatter');
