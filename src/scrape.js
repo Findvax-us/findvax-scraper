@@ -1,5 +1,6 @@
 const config = require('./config');
-const bunyan = require('bunyan');
+const bunyan = require('bunyan'),
+      dayjs = require('dayjs');
 
 // used for local file mode only
 const inFile = 'testdata/location-test.json';
@@ -174,11 +175,14 @@ const runS3BasedScrape = () => {
 
     return scrape(locations).then(results => {
 
+      let expiration = dayjs(new Date()).add(5, 'minute').toString();
+
       params = {
         Bucket: 'findvax-data',
         Key: 'MA/availability.json', // TODO: states lol
         Body: JSON.stringify(results),
-        CacheControl: 'public; max-age=300; must-revalidate'
+        CacheControl: 'public; max-age=300; must-revalidate',
+        Expires: expiration
       };
 
       // write to s3
