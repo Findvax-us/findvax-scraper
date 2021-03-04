@@ -31,8 +31,8 @@ class Athena extends SimpleScraper{
     let tokens = {};
 
     return Promise.all([
-      req.get(Athena.bearerTokenEndpoint, null, null, this, response => tokens.auth = JSON.parse(response).token),
-      req.get(jwtEndpointResolved, null, null, this, response => tokens.jwt = JSON.parse(response).token)
+      req.get(Athena.bearerTokenEndpoint, null, null, this, response => tokens.auth = JSON.parse(response.data).token),
+      req.get(jwtEndpointResolved, null, null, this, response => tokens.jwt = JSON.parse(response.data).token)
     ]).then(() => {
       const headers = {
         'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ class Athena extends SimpleScraper{
 
       this.logger.trace("Successfully fetched tokens, making POST for schedule");
       return formatter.format(
-        req.post(Athena.graphqlEndpoint, requestBody, headers, null, this, this.parse), 
+        req.post(Athena.graphqlEndpoint, requestBody, headers, null, this, response => this.parse(response.data, this)), 
         this.uuid
       );
     })

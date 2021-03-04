@@ -6,7 +6,9 @@ const config = require('../config'),
 class SimpleScraper extends Scraper{
 
   scrape(){
-    return formatter.format(req.get(this.scrapeUrl, null, null, this, this.parse), this.uuid);
+    return formatter.format(
+      req.getAndChaseRedirects(this.scrapeUrl, null, null, this, response => this.parse(response.data, this)), 
+      this.uuid);
   }
   
 }

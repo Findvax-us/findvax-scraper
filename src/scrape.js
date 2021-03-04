@@ -3,7 +3,7 @@ const bunyan = require('bunyan'),
       dayjs = require('dayjs');
 
 // used for local file mode only
-const inFile = 'testdata/location-test.json';
+const inFile = '../data/MA/locations.json';
 const outFile = 'testdata/availability.json';
 
 // see initMetricsLogger
@@ -181,7 +181,7 @@ const runS3BasedScrape = () => {
         Bucket: 'findvax-data',
         Key: 'MA/availability.json', // TODO: states lol
         Body: JSON.stringify(results),
-        CacheControl: 'public; max-age=300; must-revalidate',
+        CacheControl: 'public; max-age=120; must-revalidate',
         Expires: expiration
       };
 
@@ -221,7 +221,8 @@ exports.handler = (event, context, callback) => {
       console.log('Scrape completed successfully');
       
       callback(null, {
-        statusCode: 200,
+        statusCode: 200
+        //TODO: states, lol: pass along details of which availability json file we just wrote
       });
     })
     .catch((err) => {

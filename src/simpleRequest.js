@@ -2,6 +2,8 @@ const config = require('./config');
 const axios = require('axios'),
       util = require('util');
 
+const redirectableStatuses = [301, 302];
+
 const responseLoggingSerializer = (res) => {
   if(!res){
     return res;
@@ -55,7 +57,7 @@ const defaultErrorHandler = (error, that) => {
   throw `Request failure: ${error}`;
 }
 
-const call = (method, url, data, headers, timeout, that, successHandler, errorHandler) => {
+const call = (method, url, data, headers, timeout, that, chaseRedirectCounter, successHandler, errorHandler) => {
 
   that.logger.addSerializers({
     axiosResponse: responseLoggingSerializer,
@@ -77,13 +79,9 @@ const call = (method, url, data, headers, timeout, that, successHandler, errorHa
     // https://github.com/axios/axios/issues/2791
     transformResponse: [resData => resData], 
     responseType: 'text',
-    timeout: config.http.timeout,
-    maxRedirects: config.http.maxRedirects
+    timeout: timeout || config.http.timeout,
+    maxRedirects: chaseRedirectCounter ? 0 : config.http.maxRedirects
   };
-
-  if(timeout){
-    reqconf.timeout = timeout;
-  }
 
   if(!errorHandler){
     errorHandler = defaultErrorHandler;
@@ -96,7 +94,7 @@ const call = (method, url, data, headers, timeout, that, successHandler, errorHa
              that.logger.info(`${response.status} ${response.statusText}`);
              that.logger.trace({axiosResponse: response});
               try{
-                return successHandler(response.data, that)
+                return successHandler(response, that)
               }catch(handlerError){
                 that.logger.error('Error in request successHandler');
                 that.logger.error({err: handlerError});
@@ -104,9 +102,43 @@ const call = (method, url, data, headers, timeout, that, successHandler, errorHa
               }
            })
            .catch(err => {
-              that.logger.error('Error making request');
-              that.logger.error({axiosError: err});
-              return errorHandler(err, that)
+              if(chaseRedirectCounter){
+                if(chaseRedirectCounter > config.http.maxRedirects){
+                  that.logger.error('Reached maximum number of redirects');
+                  throw err;
+                }
+                if(err.response && 
+                   err.response.status && 
+                   redirectableStatuses.includes(err.response.status) &&
+                   err.response.headers.location){
+
+                  if(err.response.headers['set-cookie']){
+                    reqconf.headers.Cookie = err.response.headers['set-cookie'] + ';' + (reqconf.headers.Cookie || '')
+                  }
+
+                  chaseRedirectCounter += 1;
+                  that.logger.trace('Following redirect to ' + err.response.headers.location);
+
+                  return call(
+                    reqconf.method,
+                    err.response.headers.location, 
+                    reqconf.data,
+                    reqconf.headers,
+                    reqconf.timeout,
+                    that,
+                    true,
+                    successHandler,
+                    errorHandler
+                  );
+                }else{
+                  that.logger.error('Reached non-redirect, non-2xx status');
+                  throw err;
+                }
+              }else{
+                that.logger.error('Error making request');
+                that.logger.error({axiosError: err});
+                return errorHandler(err, that)
+              }
           });
 }
 
@@ -121,6 +153,24 @@ module.exports.get = (url, headers, timeout, that, successHandler, errorHandler 
     headers,
     timeout,
     that,
+    false,
+    successHandler,
+    errorHandler
+  );
+}
+
+module.exports.getAndChaseRedirects = (url, headers, timeout, that, successHandler, errorHandler = undefined) => {
+
+  that.logger.info(`GET (and chase redirects) ${url}`);
+
+  return call(
+    'get',
+    url,
+    null,
+    headers,
+    timeout,
+    that,
+    1,
     successHandler,
     errorHandler
   );
@@ -137,6 +187,7 @@ module.exports.post = (url, data, headers, timeout, that, successHandler, errorH
     headers,
     timeout,
     that,
+    false,
     successHandler,
     errorHandler
   );

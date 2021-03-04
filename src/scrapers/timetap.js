@@ -2,7 +2,8 @@ const config = require('../config'),
       SimpleScraper = require('./simpleScraperBase'),
       req = require('../simpleRequest'),
       formatter = require('../availabilityFormatter');
-const cheerio = require('cheerio');dayjs = require('dayjs'),
+const cheerio = require('cheerio');
+      dayjs = require('dayjs'),
       customParseFormat = require('dayjs/plugin/customParseFormat');
 dayjs.extend(customParseFormat);
 
@@ -13,7 +14,7 @@ class TimeTap extends SimpleScraper{
 
   scrape(){
 
-    return req.get(this.scrapeUrl, null, null, this, response => response)
+    return req.get(this.scrapeUrl, null, null, this, response => response.data)
        .then(html => {
          const $ = cheerio.load(html),
                tokenStringFinder = 'sessionStorage.setItem("token", "';
@@ -51,7 +52,7 @@ class TimeTap extends SimpleScraper{
                  body = `{"auditReferralId":null,"debug":false,"locale":"en-us","businessId":${this.params.businessId},"schedulerLinkId":${this.params.schedulerLinkId},"staffIdList":null,"reasonIdList":[595361],"locationIdList":null,"locationGroupIdList":null,"reasonGroupIdList":null,"locationSuperGroupIdList":null,"reasonSuperGroupIdList":null,"classScheduleIdList":null,"groupIdList":null,"clientTimeZone":"${this.params.businessTimeZone}","businessTimeZone":"${this.params.businessTimeZone}"}`;
 
            promiseQ.push(
-             req.post(url, body, headers, null, this, this.parse)
+             req.post(url, body, headers, null, this, response => this.parse(response.data, this))
            );
          }
 

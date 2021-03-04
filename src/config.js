@@ -4,11 +4,11 @@ module.exports = {
   logging: {
     level: "info",
     stdout: true, //boolean
-    file: false // else a path like "./logs/log.json"
+    file: false // else a path like "logs/log.json"
   },
   metrics: {
-    stdout: true, //boolean
-    file: false // else a path like "./logs/metrics.json"
+    stdout: false, //boolean
+    file: false // else a path like "logs/metrics.json"
   },
   http: {
     timeout: 10000,
@@ -23,5 +23,9 @@ module.exports = {
   },
   timetap: {
     daysToSearch: 14
+  },
+  sphp: {
+    startDayOffset: 2,
+    daysToSearch: 9
   }
 };
