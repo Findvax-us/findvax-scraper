@@ -40,15 +40,13 @@ class CVS extends SimpleScraper{
           return [null];
         }
 
-        this.logger.info('Non-fully booked data! Use this to make it work better:');
-        this.logger.info(data);
         // this API doesn't seem to offer detailed times, so just call it today
         // until we can get better data somewhere else
         const date = new Date().toISOString();
         return [{
           allDay: true,
           date: date,
-          slots: parseInt(loc.totalAvailable) || null
+          slots: parseInt(loc.totalAvailable) || null // totalAvailable is no longer used, but the effect is the same
         }];
       }else{
         this.logger.error(`no match in CVS data for city id "${this.params.locationName}"`);

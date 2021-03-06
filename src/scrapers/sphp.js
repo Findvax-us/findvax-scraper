@@ -9,7 +9,7 @@ dayjs.extend(customParseFormat);
 
 class SPHP extends SimpleScraper{
 
-  static dateFormat = 'MM/DD/YYYY HHmm Z';
+  static dateFormat = 'MM/DD/YYYY HHmm A Z';
 
   scrape(){
     const headers = {
@@ -34,38 +34,41 @@ class SPHP extends SimpleScraper{
     } 
 
     return formatter.format(Promise.all(promiseQ).then(results => {
-      return results.flat(1);
+      return results.flat(1).reverse();
     }), this.uuid);
   }
 
   parse(html, that){
-    // this is just a dumb negative check right now that assumes anything other than the "nope bye!"
-    // message means there is some unknown amount of availability on that day. until we see a
-    // response with positive availability we don't know exactly how to parse it, so this 
-    // can likely be improved in the future with some sample html (lol its html)
-
+    
     const noAvailabilityString = 'There are no open appointments on this day. Please try another day.',
           datepickerLocator = 'input#datepicker',
-          availabilityLocator = 'div.row:last-child div.well';
+          availabilityLocator = 'div.row:last-child div.well',
+          timeSlotLocator = `${availabilityLocator} div.row > div.text-left`;
 
     const $ = cheerio.load(html),
           dateString = $(datepickerLocator).val(),
-          resultString = $(availabilityLocator).text().trim();
+          availableString = $(availabilityLocator).text().trim();
 
-    if(html.includes(noAvailabilityString) || (resultString && resultString === noAvailabilityString)){
+    if(html.includes(noAvailabilityString) || (availableString && availableString === noAvailabilityString)){
       that.logger.info(`No time slots available on ${dateString ? dateString : 'UNKNOWN'}`);
       return [];
     }else{
-      that.logger.info('Time slots found! Full html output in next log. Use this to make it work better!');
-      that.logger.info(html);
 
-      let dateObj = dayjs(`${dateString} 00:00 ${that.tz}`, SPHP.dateFormat);
+      let result = [];
+      result = $(timeSlotLocator).map(function(){
 
-      return {
-        allDay: true,
-        date: dateObj.toISOString(),
-        slots: null
-      }
+        let timeSlotString = $(this).text().trim().split(' - ')[0], // looks like: '01:15 PM - 01:30 PM'
+            dateObj = dayjs(`${dateString} ${timeSlotString} ${that.tz}`, SPHP.dateFormat);
+
+        return {
+          allDay: false,
+          date: dateObj.toISOString(),
+          slots: null
+        }
+      }).toArray();
+
+      return result;
+
     }
 
   }
