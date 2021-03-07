@@ -3,7 +3,8 @@ const bunyan = require('bunyan'),
       dayjs = require('dayjs');
 
 // used for local file mode only
-const inFile = '../data/MA/locations.json';
+const inLocationFile = 'testdata/location-test.json';
+const inAvailabilityFile = 'testdata/availability-demo.json';
 const outFile = 'testdata/availability.json';
 
 // see initMetricsLogger
@@ -86,17 +87,10 @@ const initMetricsLogger = () => {
 
 // load locations from the local filesystem
 //   for local testing, not use on prod lambda
-const loadLocalFileData = () => {
+const loadLocalFileData = (path) => {
   const util = require('util'),
         fs = require('fs');
-
-  try{
-    return JSON.parse(fs.readFileSync(inFile, 'utf8'));
-  }catch(err){
-    console.error(`Couldn't load locations json: ${err}`);
-    process.exitCode = 1;
-    process.exit();
-  }
+  return JSON.parse(fs.readFileSync(path, 'utf8'));
 }
 
 // load locations from S3
@@ -106,17 +100,35 @@ const loadS3Data = () => {
   const AWS = require('aws-sdk'),
         s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
-  const params = {
+  const locationsParams = {
+    Bucket: 'findvax-data',
+    Key: 'MA/locations.json' // TODO: states lol
+  },
+  availabilityParams = {
     Bucket: 'findvax-data',
     Key: 'MA/locations.json' // TODO: states lol
   };
 
-  return s3.getObject(params).promise();
+  let responses = {
+    locations: null,
+    availability: null
+  };
+
+  responses.locations = s3.getObject(locationsParams).promise()
+                          .catch(err => {
+                            console.error('Unable to load locations', err);
+                            throw err;
+                          });
+
+  responses.availability = s3.getObject(availabilityParams).promise()
+                             .catch(err => console.error('Unable to load previous availability, leaving null.', err));
+
+  return responses;
 }
 
 // kick off the scraper queue for a given set of locations
 //    returns a Promise for completion of all scrapers
-const scrape = (locations) => {
+const scrape = (locations, prevAvailability) => {
   initMetricsLogger();
   const logger = createLogger();
 
@@ -133,7 +145,18 @@ const scrape = (locations) => {
           location.scraperParams,
           location.name
         );
-    q.push(scraper.scrape());
+    q.push(scraper.scrape().catch(err => {
+      // this scraper failed, so try to fill it in with previous data
+      logger.error('Scraper failed', err);
+      if(prevAvailability){
+        let oldAvail = prevAvailability.find(avail => avail.location && avail.location === location.uuid) || [];
+        logger.error('Attempting to fill in with old data', oldAvail);
+
+        return oldAvail;
+      }else{
+        logger.error('No previous data available, leaving empty');
+      }
+    }));
   });  
 
   return Promise.all(q);
@@ -148,9 +171,23 @@ const scrape = (locations) => {
 // do the scraping using local files in and out
 //    for local testing, not on prod lambda
 const runLocalFileBasedScrape = () => {
-  const locations = loadLocalFileData();
+  let locations;
+  try{
+    locations = loadLocalFileData(inLocationFile);
+  }catch(err){
+    console.error("Couldn't load locations json", err);
+    process.exitCode = 1;
+    process.exit();
+  }
 
-  scrape(locations).then(results => {
+  let prevAvailability = null;
+  try{
+    prevAvailability = loadLocalFileData(inAvailabilityFile);
+  }catch(err){
+    console.error("Couldn't load old availability json", err);
+  }
+
+  scrape(locations, prevAvailability).then(results => {
     console.log(util.inspect(results, false, null, true));
 
     // assuming the imports were already done by the load data function
@@ -169,45 +206,56 @@ const runLocalFileBasedScrape = () => {
 // do the scraping using S3 in and out
 //    for prod lambda
 const runS3BasedScrape = () => {
-  return loadS3Data().then(data => {
 
+  const s3Promises = loadS3Data();
+
+  return s3Promises.locations.then(data => {
     const locations = JSON.parse(data.Body.toString('utf-8'));
 
-    return scrape(locations).then(results => {
-
-      let expiration = dayjs(new Date()).add(5, 'minute').toISOString();
-
-      const params = {
-        Bucket: 'findvax-data',
-        Key: 'MA/availability.json', // TODO: states lol
-        Body: JSON.stringify(results),
-        CacheControl: 'public; max-age=120; must-revalidate',
-        Expires: expiration
-      };
-
-      // write to s3
+    return s3Promises.availability.then(data => {
+      let prevAvailability = null;
       try{
-        const AWS = require('aws-sdk'),
-              s3 = new AWS.S3({apiVersion: '2006-03-01'});
-      
-        return s3.upload(params).promise().then(data => {
-          console.log('Successful S3 upload: ', data);
-        }).catch(err => { throw err; });
-        
+        prevAvailability = JSON.parse(data.Body.toString('utf-8'));
       }catch(err){
-        console.error(`Couldn't write output json to S3: ${err}`);
-        throw err;
+        console.error("Couldn't load previous availability json", err);
       }
 
-      clearInterval(metricsLoggerInterval);
-    }).catch((err) => {
-      console.error(`Couldn't scrape: ${err}`);
-      throw err;  
+      return scrape(locations, prevAvailability).then(results => {
+
+        let expiration = dayjs(new Date()).add(5, 'minute').toISOString();
+
+        const params = {
+          Bucket: 'findvax-data',
+          Key: 'MA/availability.json', // TODO: states lol
+          Body: JSON.stringify(results),
+          CacheControl: 'public; max-age=120; must-revalidate',
+          Expires: expiration
+        };
+
+        // write to s3
+        try{
+          const AWS = require('aws-sdk'),
+                s3 = new AWS.S3({apiVersion: '2006-03-01'});
+        
+          return s3.upload(params).promise().then(data => {
+            console.log('Successful S3 upload: ', data);
+          }).catch(err => { throw err; });
+          
+        }catch(err){
+          console.error(`Couldn't write output json to S3: ${err}`);
+          throw err;
+        }
+
+        clearInterval(metricsLoggerInterval);
+      }).catch((err) => {
+        console.error(`Couldn't scrape: ${err}`);
+        throw err;  
+      });
     });
-  })
-  .catch(err => {
-    console.error(`Couldn't load locations from S3: ${err}`);
-    throw err;
+  }).catch(err => {
+    console.error("Couldn't load locations json", err);
+    process.exitCode = 1;
+    process.exit();
   });
 }
 
