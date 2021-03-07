@@ -1,5 +1,5 @@
 const config = require('../config'),
-      NightmareScraper = require('./nightmareScraperBase'),
+      SimpleScraper = require('./simpleScraperBase.js'),
       req = require('../simpleRequest'),
       formatter = require('../availabilityFormatter');
 
@@ -12,8 +12,7 @@ class StopNShop extends SimpleScraper{
   static timeoutOverride = config.stopnshop.timeout;
 
   scrape(){
-    const goButton = 'input#btnGo',
-          daysToSearch = [];
+    const daysToSearch = [];
 
     for(let i = config.stopnshop.daysToSearch; i >= 0; i--){
       let today = new Date(new Date().toDateString() + ' GMT' + this.tz),
@@ -21,45 +20,48 @@ class StopNShop extends SimpleScraper{
       daysToSearch.push(newDate);
     }
 
-    // open a headless browser to let it do the redirect chain that sets
-    // all the session cookies, then steal them for use in our POSTs
+  
+    let promiseQ = [];
+    daysToSearch.forEach(date => {
+      let data = {
+        facilityId: this.params.facilityId,
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+        day: date.getDate(),
+        appointmentTypeId: this.params.appointmentTypeId
+      };
 
-    // this whole thing is wrapped in format since this one follows a different pattern,
-    // we make many requests and combine them into a single list
-    return formatter.format(this.nightmare
-      .goto(this.scrapeUrl)
-      .wait(goButton)
-      .cookies.get()
-      .end()
-      .then(cookies => {
-        let promiseQ = [];
-        daysToSearch.forEach(date => {
-          let cookieString = cookies.reduce((acc, cookie) => acc + `${cookie.name}=${cookie.value}; `, '');
-          let data = {
-            facilityId: this.params.facilityId,
-            year: date.getFullYear(),
-            month: date.getMonth() + 1, //lmao it's zero indexed 
-            day: date.getDate(),
-            appointmentTypeId: this.params.appointmentTypeId
-          },
-          headers = {
-            'X-Requested-With': 'XMLHttpRequest',
-            'Cookie': cookieString.substring(0, cookieString.length - 1)
-          };
+      // do the redirect chain to set cookies for each individual day POST request
+      // so that each one gets a unique session id
+      // otherwise the server queues them together by session and handles them sequentially, which is very slow
+      promiseQ.push(req.getAndChaseRedirects(this.scrapeUrl, null, StopNShop.timeoutOverride, this, initResponse => {
 
-          promiseQ.push(req.post(this.params.dayEndpoint, data, headers, StopNShop.timeoutOverride, this, response => {
-            const day = JSON.parse(response);
-            return this.parse(day.Data);
-          }));
-        });
+        if(initResponse.config.url.includes('softblock')){
+          // queue-it has sent us to captcha hell for being a bot
+          this.logger.error(`We've been captcha'd`);
+          throw 'Sent to captcha softblock hell';
+        }
+        let headers = initResponse.config.headers;
+        headers['X-Requested-With'] = 'XMLHttpRequest';
 
-        return Promise.all(promiseQ).then(results => {
-          return results.flat(1);
+        return req.post(this.params.dayEndpoint, data, headers, StopNShop.timeoutOverride, this, response => {
+          const day = JSON.parse(response.data);
+          return this.parse(day.Data);
         });
       })
       .catch(error => {
         this.logger.error(`Failed to load the page to steal cookies: ${error}`)
-      }), this.uuid);
+        throw error;
+      }));
+    });
+
+    return formatter.format(Promise.all(promiseQ).then(results => {
+      return results.flat(1);
+    })
+    .catch(error => {
+      // propagate the error so it kills the entire queue for this instance
+      throw error;
+    }), this.uuid);
   }
 
   parse(resDay){
