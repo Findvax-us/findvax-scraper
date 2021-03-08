@@ -3,7 +3,7 @@ const bunyan = require('bunyan'),
       dayjs = require('dayjs');
 
 // used for local file mode only
-const inLocationFile = 'testdata/location-test.json';
+const inLocationFile = '../data/MA/locations.json';
 const inAvailabilityFile = 'testdata/availability-demo.json';
 const outFile = 'testdata/availability.json';
 
@@ -106,7 +106,7 @@ const loadS3Data = () => {
   },
   availabilityParams = {
     Bucket: 'findvax-data',
-    Key: 'MA/locations.json' // TODO: states lol
+    Key: 'MA/availability.json' // TODO: states lol
   };
 
   let responses = {
