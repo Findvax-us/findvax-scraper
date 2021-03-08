@@ -113,24 +113,15 @@ const call = (method, url, data, headers, timeout, that, chaseRedirectCounter, s
                    err.response.headers.location){
 
                   if(err.response.headers['set-cookie']){
-                    let newCookieStr = err.response.headers['set-cookie'].reduce(
-                      (acc, cookie) => acc + `${cookie}; `,
-                       reqconf.headers.Cookie || '');
-                    reqconf.headers.Cookie = newCookieStr;
-                  }
-
-                  let location = err.response.headers.location;
-                  if(!location.startsWith('http')){
-                    // relative path, need to prepend the baseurl
-                    location = `${err.response.request.protocol}//${err.response.request.host}${err.response.headers.location}`;
+                    reqconf.headers.Cookie = err.response.headers['set-cookie'] + ';' + (reqconf.headers.Cookie || '')
                   }
 
                   chaseRedirectCounter += 1;
-                  that.logger.trace('Following redirect to ' + location);
+                  that.logger.trace('Following redirect to ' + err.response.headers.location);
 
                   return call(
                     reqconf.method,
-                    location, 
+                    err.response.headers.location, 
                     reqconf.data,
                     reqconf.headers,
                     reqconf.timeout,
@@ -140,10 +131,7 @@ const call = (method, url, data, headers, timeout, that, chaseRedirectCounter, s
                     errorHandler
                   );
                 }else{
-                  that.logger.error(`Reached non-redirect, non-2xx status ${err}`);
-                  if(err.reponse){
-                    that.logger.error(`Reached non-redirect, non-2xx status ${err.response.status}`);
-                  }
+                  that.logger.error('Reached non-redirect, non-2xx status');
                   throw err;
                 }
               }else{
