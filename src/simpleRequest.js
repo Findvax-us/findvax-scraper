@@ -115,11 +115,12 @@ const call = (method, url, data, headers, timeout, that, chaseRedirectCounter, s
                   if(err.response.headers['set-cookie']){
                     let newCookieStr = '';
                     if(typeof err.response.headers['set-cookie'] === 'array'){
+                      console.log('arr')
                       newCookieStr = err.response.headers['set-cookie'].reduce(
-                        (acc, cookie) => acc + `${cookie}; `,
+                        (acc, cookie) => `${cookie}; ${acc}`,
                          reqconf.headers.Cookie || '');
                     }else{
-                      newCookieStr = err.response.headers['set-cookie'];
+                      newCookieStr = err.response.headers['set-cookie'] + (reqconf.headers.Cookie || '');
                     }
                     reqconf.headers.Cookie = newCookieStr;
                   }
