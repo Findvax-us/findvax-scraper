@@ -2,7 +2,7 @@ module.exports = {
   appName: "JabzoneScraper",
   debug: false, // boolean, writes extra logging
   logging: {
-    level: "info",
+    level: "trace",
     stdout: true, //boolean
     file: false // else a path like "logs/log.json"
   },

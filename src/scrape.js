@@ -149,7 +149,7 @@ const scrape = (locations, prevAvailability) => {
       // this scraper failed, so try to fill it in with previous data
       logger.error('Scraper failed', err);
       if(prevAvailability){
-        let oldAvail = prevAvailability.find(avail => avail.location && avail.location === location.uuid) || [];
+        let oldAvail = prevAvailability.find(avail => avail && avail.location && avail.location === location.uuid) || [];
         logger.error('Attempting to fill in with old data', oldAvail);
 
         return oldAvail;

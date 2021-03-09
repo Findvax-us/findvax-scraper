@@ -115,12 +115,15 @@ const call = (method, url, data, headers, timeout, that, chaseRedirectCounter, s
                   if(err.response.headers['set-cookie']){
                     let newCookieStr = '';
                     if(typeof err.response.headers['set-cookie'] === 'array'){
+                      that.logger.trace('Multiple set-cookie headers');
                       newCookieStr = err.response.headers['set-cookie'].reduce(
                         (acc, cookie) => `${cookie}; ${acc}`,
                          reqconf.headers.Cookie || '');
                     }else{
+                      that.logger.trace('Single set-cookie header');
                       newCookieStr = `${err.response.headers['set-cookie']} ; ${reqconf.headers.Cookie || ''}`;
                     }
+                    that.logger.trace(`New cookiejar: ${newCookieStr}`);
                     reqconf.headers.Cookie = newCookieStr;
                   }
 
@@ -128,6 +131,7 @@ const call = (method, url, data, headers, timeout, that, chaseRedirectCounter, s
                   if(!location.startsWith('http')){
                     // relative path, need to prepend the baseurl
                     location = `${err.response.request.protocol}//${err.response.request.host}${err.response.headers.location}`;
+                    that.logger.trace(`Constructed full url from relative redirect: ${location}`);
                   }
 
                   chaseRedirectCounter += 1;

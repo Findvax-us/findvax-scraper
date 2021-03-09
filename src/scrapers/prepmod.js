@@ -3,38 +3,34 @@ const SimpleScraper = require('./simpleScraperBase'),
       req = require('../simpleRequest');
 const cheerio = require('cheerio');
 
-let cache = null;
+let headers = null;
 
 class Prepmod extends SimpleScraper{
 
   scrape(){
-    if(!cache){
+    if(!headers){
       // first time initialization of the "singleton"
       this.logger.trace('init singleton');
 
       let parseResults;
 
-      cache = new Promise((resolve, reject) => {
+      headers = new Promise((resolve, reject) => {
         req.getAndChaseRedirects(this.scrapeUrl, null, null, this, response => {
 
           parseResults = this.parse(response.data, this);
 
-          resolve({
-            headers: response.config.headers,
-            url: response.config.url
-          });
-
+          resolve(response.config.headers);
         });
       });
 
-      return formatter.format(cache.then(() => {
+      return formatter.format(headers.then(() => {
         return parseResults;
       }), this.uuid);
     }else{
-      this.logger.trace('reusing cached data');
+      this.logger.trace('reusing cached headers');
 
-      return formatter.format(cache.then(cached =>{
-        return req.get(cached.url, cached.headers, null, this, response => this.parse(response.data, this))
+      return formatter.format(headers.then(hds =>{
+        return req.get(this.scrapeUrl, hds, null, this, response => this.parse(response.data, this))
       }), this.uuid);
     }
   }
@@ -47,7 +43,7 @@ class Prepmod extends SimpleScraper{
     const availabilityIndicator = $(availabilityLocator).hasClass('available');
 
     let arr = [];
-    if(availabilityLocator){
+    if(availabilityIndicator){
       arr = $(availabilityTableRowLocator).map(function(i, el){
         const date = $(this).find('td:nth-child(1)').text(),
               count = $(this).find('td:nth-child(3)').text(),
