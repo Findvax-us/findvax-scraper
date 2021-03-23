@@ -285,9 +285,11 @@ exports.handler = (event, context, callback) => {
     // we're here to kick things off
     loadS3States().then(data => {
       const states = JSON.parse(data.Body.toString('utf-8'));
-      const lambda = new AWS.Lambda({
-        region: 'us-east-1'
-      });
+      const AWS = require('aws-sdk'),
+            lambda = new AWS.Lambda({
+              region: 'us-east-1',
+              apiVersion: '2015-03-31'
+            });
 
       states.map(state => {
         if(state.enabled){
