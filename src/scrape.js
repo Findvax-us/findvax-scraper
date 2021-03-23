@@ -296,7 +296,7 @@ exports.handler = (event, context, callback) => {
           const params = {
             FunctionName: 'scraper',
             InvocationType: 'Event',
-            Payload: {state: state.short},
+            Payload: JSON.stringify({state: state.short}),
             LogType: 'Tail',
           }
 
