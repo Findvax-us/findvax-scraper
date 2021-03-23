@@ -96,17 +96,17 @@ const loadLocalFileData = (path) => {
 // load locations from S3
 // returns a Promise of json, unlike local file sync
 //   for use on prod lambda only
-const loadS3Data = () => {
+const loadS3Data = (state) => {
   const AWS = require('aws-sdk'),
         s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
   const locationsParams = {
     Bucket: 'findvax-data',
-    Key: 'MA/locations.json' // TODO: states lol
+    Key: `${state}/locations.json`
   },
   availabilityParams = {
     Bucket: 'findvax-data',
-    Key: 'MA/availability.json' // TODO: states lol
+    Key: `${state}/availability.json`
   };
 
   let responses = {
@@ -124,6 +124,23 @@ const loadS3Data = () => {
                              .catch(err => console.error('Unable to load previous availability, leaving null.', err));
 
   return responses;
+}
+
+const loadS3States = () => {
+  const AWS = require('aws-sdk'),
+        s3 = new AWS.S3({apiVersion: '2006-03-01'});
+
+  const params = {
+    Bucket: 'findvax-data',
+    Key: 'states.json'
+  };
+
+  return s3.getObject(params)
+    .promise()
+    .catch(err => {
+      console.error('Unable to load states definition', err);
+      throw err;
+    });
 }
 
 // kick off the scraper queue for a given set of locations
@@ -205,9 +222,9 @@ const runLocalFileBasedScrape = () => {
 
 // do the scraping using S3 in and out
 //    for prod lambda
-const runS3BasedScrape = () => {
-
-  const s3Promises = loadS3Data();
+const runS3BasedScrape = (state) => {
+  console.log(`Starting scrape for ${state}`);
+  const s3Promises = loadS3Data(state);
 
   return s3Promises.locations.then(data => {
     const locations = JSON.parse(data.Body.toString('utf-8'));
@@ -226,9 +243,9 @@ const runS3BasedScrape = () => {
 
         const params = {
           Bucket: 'findvax-data',
-          Key: 'MA/availability.json', // TODO: states lol
+          Key: `${state}/availability.json`,
           Body: JSON.stringify(results),
-          CacheControl: 'public; max-age=120; must-revalidate',
+          CacheControl: `public; max-age=${config.s3UploadMaxAge}; must-revalidate`,
           Expires: expiration
         };
 
@@ -238,22 +255,22 @@ const runS3BasedScrape = () => {
                 s3 = new AWS.S3({apiVersion: '2006-03-01'});
         
           return s3.upload(params).promise().then(data => {
-            console.log('Successful S3 upload: ', data);
+            console.log(`Successful S3 upload for ${state}: `, data);
           }).catch(err => { throw err; });
           
         }catch(err){
-          console.error(`Couldn't write output json to S3: ${err}`);
+          console.error(`Couldn't write ${state} output json to S3: ${err}`);
           throw err;
         }
 
         clearInterval(metricsLoggerInterval);
       }).catch((err) => {
-        console.error(`Couldn't scrape: ${err}`);
+        console.error(`Couldn't scrape ${state}: ${err}`);
         throw err;  
       });
     });
   }).catch(err => {
-    console.error("Couldn't load locations json", err);
+    console.error(`Couldn't load ${state} locations json`, err);
     process.exitCode = 1;
     process.exit();
   });
@@ -264,22 +281,57 @@ exports.handler = (event, context, callback) => {
   // ensure that we exit as soon as we call the callback no matter what
   context.callbackWaitsForEmptyEventLoop = false;
 
-  runS3BasedScrape()
-    .then(() => {
-      console.log('Scrape completed successfully');
-      
-      callback(null, {
-        statusCode: 200
-        //TODO: states, lol: pass along details of which availability json file we just wrote
+  if(event.init){
+    // we're here to kick things off
+    loadS3States().then(data => {
+      const states = JSON.parse(data.Body.toString('utf-8'));
+      const lambda = new AWS.Lambda({
+        region: 'us-east-1'
       });
-    })
-    .catch((err) => {
-      console.error(`Scrape error: ${err}`);
 
-      callback(err, {
-        statusCode: 500,
+      states.map(state => {
+        if(state.enabled){
+          const params = {
+            FunctionName: 'scraper',
+            InvocationType: 'Event',
+            Payload: {state: state.short},
+            LogType: 'Tail',
+          }
+
+          lambda.invoke(params).promise(); // kick it off and immediately stop caring!
+        }
       });
-    })
+
+      callback(null, {
+        statusCode: 200,
+        state: 'none'
+      });
+    });
+
+  }else if(event.state){
+
+    runS3BasedScrape(event.state)
+      .then(() => {
+        console.log(`Scrape for ${event.state} completed successfully`);
+        
+        callback(null, {
+          statusCode: 200,
+          state: event.state
+        });
+      })
+      .catch((err) => {
+        console.error(`${event.state} Scrape error : ${err}`);
+
+        callback(err, {
+          statusCode: 500,
+        });
+      });
+  }else{
+    // we were not triggered properly, time to die
+    callback('Missing either init or state trigger', {
+      statusCode: 500,
+    });
+  }
 }
 
 // hook for local cli

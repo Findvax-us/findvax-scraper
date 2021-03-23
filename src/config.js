@@ -6,6 +6,9 @@ module.exports = {
     stdout: true, //boolean
     file: false // else a path like "logs/log.json"
   },
+  // this is the value we set on the uploaded json to s3
+  // if the schedule for the scraper changes, this needs to reflect it
+  s3UploadMaxAge: 120,
   metrics: {
     stdout: false, //boolean
     file: false // else a path like "logs/metrics.json"
